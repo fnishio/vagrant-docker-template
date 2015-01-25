@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
       d.image = "mongo:2.6"
       d.volumes = ["/vagrant-log:/var/log"]
       d.ports = ["27017:27017"]
-      d.vagrant_vagrantfile = "./vagrant-docker.proxy"
+      d.vagrant_vagrantfile = "proxy-vm/Vagrantfile"
       d.remains_running = false
       d.cmd = ["--logpath", "/var/log/mongo.log"]
     end
@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
       d.image = "node:0.10"
       d.volumes = ["/vargrant-app:/usr/src/myapp"]
       d.ports = ["3000:3000"]
-      d.vagrant_vagrantfile = "./vagrant-docker.proxy"
+      d.vagrant_vagrantfile = "proxy-vm/Vagrantfile"
       d.create_args = ["-w", "/usr/src/myapp"]
       d.cmd = ["node", "bin/www"]
       d.remains_running = false
